@@ -233,4 +233,12 @@
         where login_act = #{loginAct,jdbcType=VARCHAR}
         and login_pwd=#{loginPwd,jdbcType=VARCHAR}
   </select>
+
+  <select id="selectAllUser" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tbl_user
+    where lock_state='1';
+
+  </select>
 </mapper>
